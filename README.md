@@ -56,6 +56,7 @@ Click on the register request go to body and update the request json.
 now Click send, a success message will appear.
 
 ### User Registration [Request and Response]
+```
 Request Details:
   Method: POST
   URL: domain/User
@@ -69,9 +70,10 @@ Request Details:
 Sample Response: Text
 User registered successfully.
 
-
+```
 
 ### Step 2: Procure Token
+```
 Request Details:
   Method: POST
   URL: domain/Token
@@ -83,8 +85,10 @@ Request Details:
 
 Sample Response: JWT Bearer token
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1MzMxZmVhLTc3MjgtNDk5YS1hNzI5LTI1OTVkMzE4MDljYyIsIm5iZiI6MTcyMDYzODc3MSwiZXhwIjoxNzIwNjQyMzcxLCJpYXQiOjE3MjA2Mzg3NzF9.oxYOplWyTbyqzQJgPZMQ3T5HGmMpcJtH5jQQOwNh39w
-
+```
 ### Step 3: Guest API Calls - Create Guest Information in the system.
+
+```
 Request Details:
   Method: POST
   URL: domain/api/Guest
@@ -97,8 +101,9 @@ Request Details:
 
 Sample Response: JWT Bearer token
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1MzMxZmVhLTc3MjgtNDk5YS1hNzI5LTI1OTVkMzE4MDljYyIsIm5iZiI6MTcyMDYzODc3MSwiZXhwIjoxNzIwNjQyMzcxLCJpYXQiOjE3MjA2Mzg3NzF9.oxYOplWyTbyqzQJgPZMQ3T5HGmMpcJtH5jQQOwNh39w
-
+```
 ### Step 4: Create 
+```
 Request Details: 
 Method: POST
 URL: {{Domain}}/api/Guest
@@ -122,9 +127,10 @@ Request Body:
 
 Resposne Body:
 201 Create with Guest Id [GUID is return]
-
+```
 
 ###Step 5: Add Guest Phone number 
+```
 Method: POST
 URL: domain/api/guest/{GUID}/addphone
 Authorization:  Bearer       eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJmMmU5MjZmLWUyY2YtNDRkNy1hYTEyLTA3ODFmYWUxZjVmOSIsIm5iZiI6MTcyMDYyMDk0NSwiZXhwIjoxNzIwNjI0NTQ1LCJpYXQiOjE3MjA2MjA5NDV9.wLfXaFiyFvVbXV4kUx2QoE7quPaLh9zqQ-vYhDa2Qgs
@@ -151,9 +157,10 @@ Sample Response Body:
     ],
     "countryCode": "IN"
 }
-
+```
 
 ### Step 6: Get Guest by Id
+```
 Request Details: 
 Method: GET
 URL: domain/api/Guest/[GUID]
@@ -176,9 +183,10 @@ Sample Response Body:
     ],
     "countryCode": "IN"
 }
-
+```
 
 ### Step 7: Fetch all guests
+```
 Reuqest Details: 
 Method: GET
 URL: domain/api/Guest/AllGuests
@@ -200,7 +208,7 @@ Sample Response Body:
     ],
     "countryCode": "IN"
 }
-
+```
 
 
 #Other Details 
