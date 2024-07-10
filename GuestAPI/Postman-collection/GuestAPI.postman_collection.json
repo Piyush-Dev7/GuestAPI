@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "c9256199-3190-4fd2-981a-19d5f9e88282",
+		"name": "GuestAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31716378"
+	},
+	"item": [
+		{
+			"name": "2. Authenticate",
+			"item": [
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Auth Token Success Validation\", function () {\r",
+									"    if(pm.response.to.have.status(200)) {\r",
+									"    pm.collectionVariables.set(\"AuthToken\", pm.response.text());\r",
+									"}\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"piyush-dev@gmail.com\",\r\n    \"password\": \"piyushDev@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Domain}}/Token",
+							"host": [
+								"{{Domain}}"
+							],
+							"path": [
+								"Token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1. UserRegistration",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Piyush Dev\",\r\n  \"email\": \"piyush-dev@gmail.com\",\r\n  \"password\": \"piyushDev@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Domain}}/User",
+							"host": [
+								"{{Domain}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AddGuest",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AuthToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"displayTitle\": \"Mr\",\r\n  \"firstName\": \"Piyush\",\r\n  \"lastName\": \"Watson\",\r\n  \"birthDate\": \"1994-02-07\",\r\n  \"email\": \"pmeshram316712@gmail.com\",\r\n  \"phoneNumbers\": [\r\n    \"+91+918999615040\",\r\n    \"+91973013259\",\r\n    \"9822926659\"\r\n  ],\r\n  \"country\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Domain}}/api/Guest",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"Guest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetGuestById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AuthToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Domain}}/api/Guest/Guest/7FD03C57-F29F-4B25-BADF-5C593544A1BB",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"Guest",
+						"Guest",
+						"7FD03C57-F29F-4B25-BADF-5C593544A1BB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllGuests",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AuthToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Domain}}/api/Guest/AllGuests",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"Guest",
+						"AllGuests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddPhone",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AuthToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phoneNumber\": \"8999342675\",\r\n  \"countryCode\": \"IN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Domain}}/api/Guest/7fd03c57-f29f-4b25-badf-5c593544a1bb/addphone",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"Guest",
+						"7fd03c57-f29f-4b25-badf-5c593544a1bb",
+						"addphone"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Domain",
+			"value": "https://localhost:7263",
+			"type": "string"
+		},
+		{
+			"key": "AuthToken",
+			"value": "gggg",
+			"type": "string"
+		}
+	]
+}
