@@ -1,0 +1,18 @@
+//separate app settings is created based on your deployment strategies
+//secure the data access layer settings in a separate file in Azure key vault.
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "GuestDB": "Data Source=PIYUSH-ALIENWAR;Initial Catalog=Guest_Prod;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  },
+  "APISettings": {
+    "SecretKey": "Z!o0PIRYTGBN#@SG29$$$$#124@#$##@$@@#$$#%",
+    "Issuer": "SafeSecureCorpX029!"
+  },
+  "AllowedHosts": "*"
+}
